@@ -1,4 +1,5 @@
 import panda as pd
+
 def arabic_fonts(text: str) -> str:
   """Fix almost every font problems 
     :return: string"""
