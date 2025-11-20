@@ -9,10 +9,15 @@ def arabic_fonts(text: str) -> str:
 def reader(path: str) -> ...:
   """read contents from pdf file"""
   context = []
+  # read using PdfReader
   with PdfReader(path) as reader:
+      # pages in the file
       pages = reader.pages
+      # check file status
       if not len(pages):
-        return "pages not founded"
+        # invalid file
+        return f"Can't find pages in {path}"
+      # extract text for each page
       for page in pages:
         context.append(page.extract_text())
   return context
