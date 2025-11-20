@@ -20,6 +20,7 @@ def reader(path: str) -> ...:
       # extract text for each page
       for page in pages:
         context.append(page.extract_text())
+        
   return context
 
 
