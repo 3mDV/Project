@@ -1,4 +1,4 @@
-from pypdf import PdfReader
+from pypdf import PdfReader, PdfWriter
 import panda as pd
 
 def arabic_fonts(text: str) -> str:
@@ -24,6 +24,19 @@ def reader(path: str) -> ...:
   return context
 
 
+def renew_form(pdf: str) -> ...:
+  """ renew pdf formate """
+  # write using PdfWriter 
+  writer = PdfWriter()
+  # append pdf context as file
+  writer.append(pdf)
+  # save it as pdf name
+  with open(pdf, "wb") as f:
+      writer.write(pdf)
+  
+  return f"{pdf} is renewed now"
+  
+  
 def contract_no(text: str) -> str:
   pass
 
