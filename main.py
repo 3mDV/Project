@@ -1,3 +1,4 @@
+from pypdf import PdfReader
 import panda as pd
 
 def arabic_fonts(text: str) -> str:
@@ -7,7 +8,15 @@ def arabic_fonts(text: str) -> str:
 
 def reader(path: str) -> ...:
   """read contents from pdf file"""
-  pass
+  context = []
+  with PdfReader(path) as reader:
+      pages = reader.pages
+      if not len(pages):
+        return "pages not founded"
+      for page in pages:
+        context.append(page.extract_text())
+  return context
+
 
 def contract_no(text: str) -> str:
   pass
